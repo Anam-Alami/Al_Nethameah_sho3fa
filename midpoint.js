@@ -105,15 +105,12 @@ document.getElementById("hideGraphButton").addEventListener("click", function() 
     document.getElementById("showGraphButton").style.display = "block";
     document.getElementById("hideGraphButton").style.display = "none";
 });
-
- // عرض الشرح عند الضغط على زر "إظهار شرح الدرس"
-document.getElementById("showExplanationButton").addEventListener("click", function() {
-    document.getElementById("explanation").style.display = "block";
-    document.getElementById("solution").style.display = "none";
-});
-
-// عرض طريقة الحل عند الضغط على زر "إظهار طريقة الحل"
+// عرض أو إخفاء طريقة الحل عند الضغط على زر "إظهار طريقة الحل"
 document.getElementById("showSolutionButton").addEventListener("click", function() {
-    document.getElementById("solution").style.display = "block";
-    document.getElementById("explanation").style.display = "none";
+    let solutionElement = document.getElementById("solution");
+    if (solutionElement.style.display === "none" || solutionElement.style.display === "") {
+        solutionElement.style.display = "block";  // إظهار طريقة الحل
+    } else {
+        solutionElement.style.display = "none";  // إخفاء طريقة الحل
+    }
 });
