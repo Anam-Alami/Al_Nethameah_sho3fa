@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب المسافة بين نقطتين</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>حساب المسافة بين نقطتين</h1>
+        <form onsubmit="calculateDistance(event)">
+            <label>إحداثيات النقطة الأولى (X1, Y1):</label>
+            <input type="number" id="x1" placeholder="X1" required>
+            <input type="number" id="y1" placeholder="Y1" required>
+            
+            <label>إحداثيات النقطة الثانية (X2, Y2):</label>
+            <input type="number" id="x2" placeholder="X2" required>
+            <input type="number" id="y2" placeholder="Y2" required>
+            
+            <button type="submit">حساب</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <canvas id="graphCanvas" width="400" height="400"></canvas>
+
+    <script>
+        function drawGraph(x1, y1, x2, y2) {
+            let canvas = document.getElementById("graphCanvas");
+            let ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+            // رسم المحاور
+            ctx.beginPath();
+            ctx.moveTo(200, 0);
+            ctx.lineTo(200, 400);
+            ctx.moveTo(0, 200);
+            ctx.lineTo(400, 200);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+    
+            // تحويل الإحداثيات
+            let scale = 20;
+            let x1Scaled = 200 + x1 * scale;
+            let y1Scaled = 200 - y1 * scale;
+            let x2Scaled = 200 + x2 * scale;
+            let y2Scaled = 200 - y2 * scale;
+    
+            // رسم الخط
+            ctx.beginPath();
+            ctx.moveTo(x1Scaled, y1Scaled);
+            ctx.lineTo(x2Scaled, y2Scaled);
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+    
+            // رسم النقاط
+            ctx.fillStyle = "blue";
+            ctx.beginPath();
+            ctx.arc(x1Scaled, y1Scaled, 5, 0, 2 * Math.PI);
+            ctx.arc(x2Scaled, y2Scaled, 5, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+    
+        function calculateDistance(event) {
+            event.preventDefault();
+            let x1 = parseFloat(document.getElementById("x1").value);
+            let y1 = parseFloat(document.getElementById("y1").value);
+            let x2 = parseFloat(document.getElementById("x2").value);
+            let y2 = parseFloat(document.getElementById("y2").value);
+    
+            let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            document.getElementById("result").innerHTML = `المسافة بين النقطتين: ${distance.toFixed(2)}`;
+    
+            drawGraph(x1, y1, x2, y2);
+        }
+    </script>
+    
+</body>
+</html>

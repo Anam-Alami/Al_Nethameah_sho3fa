@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب الميل</title>
+    <link rel="stylesheet" href="slope.css">
+</head>
+<body>
+    <div class="container">
+        <h1>حساب ميل الخط المستقيم</h1>
+        
+        <form onsubmit="calculateSlope(event)">
+            <div class="form-group">
+                <label>إحداثيات النقطة الأولى (س1, ص1):</label>
+                <input type="number" id="x1" placeholder="س1" required>
+                <input type="number" id="y1" placeholder="ص1" required>
+            </div>
+            
+            <div class="form-group">
+                <label>إحداثيات النقطة الثانية (س2, ص2):</label>
+                <input type="number" id="x2" placeholder="س2" required>
+                <input type="number" id="y2" placeholder="ص2" required>
+            </div>
+
+            <button type="submit">حساب</button>
+        </form>
+        
+        <div id="result"></div>
+        
+        <!-- زر لعرض الشرح -->
+        <button id="showExplanationButton">إظهار شرح الدرس</button>
+        <div id="explanation" style="display: none;">
+            <p>الميل هو قياس انحدار الخط المستقيم بين نقطتين. يمكن حساب الميل باستخدام الصيغة التالية:</p>
+            <p><strong>الميل (م) = (ص2 - ص1) / (س2 - س1)</strong></p>
+            <p>حيث (س1, ص1) و (س2, ص2) هما إحداثيات النقطتين اللتين يعبر عنهما الخط المستقيم.</p>
+        </div>
+
+        <!-- زر لعرض شرح طريقة الحل -->
+        <button id="showSolutionButton">إظهار شرح طريقة الحل</button>
+        <div id="solution" style="display: none;">
+            <h3>شرح طريقة حساب الميل:</h3>
+            <p>1. اختر نقطتين على الخط المستقيم (س1, ص1) و (س2, ص2).</p>
+            <p>2. قم بحساب الفرق في الإحداثيات العمودية (ص2 - ص1).</p>
+            <p>3. قم بحساب الفرق في الإحداثيات الأفقية (س2 - س1).</p>
+            <p>4. استخدم الصيغة التالية لحساب الميل:</p>
+            <p><strong>الميل (م) = (ص2 - ص1) / (س2 - س1)</strong></p>
+            <p>5. إذا كانت النتيجة موجبة، يعني أن الخط صاعد. إذا كانت النتيجة سالبة، يعني أن الخط هابط.</p>
+            <p>6. إذا كانت النتيجة صفرًا، فإن الخط أفقي. إذا كانت النتيجة غير معرفة، فإن الخط عمودي.</p>
+        </div>
+
+        <!-- زر لعرض المستوى الديكارتي -->
+        <button id="showGraphButton">عرض المستوى الديكارتي</button>
+        
+        <!-- زر لإخفاء المستوى الديكارتي -->
+        <button id="hideGraphButton" style="display: none;">إخفاء المستوى الديكارتي</button>
+    </div>
+    
+    <!-- عنصر الرسم -->
+    <div id="graphContainer" style="display: none;">
+        <canvas id="graphCanvas" width="1600" height="1600"></canvas>
+    </div>
+
+    <script src="slope.js"></script>
+</body>
+</html>
+             

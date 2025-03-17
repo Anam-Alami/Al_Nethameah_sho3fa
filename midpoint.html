@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب إحداثيات المنتصف</title>
+    <link rel="stylesheet" href="midpoint.css">
+</head>
+<body>
+    <div class="container">
+        <h1>حساب إحداثيات المنتصف</h1>
+
+        <form onsubmit="calculateMidpoint(event)">
+            <div class="form-group">
+                <label>إحداثيات النقطة الأولى (س1, ص1):</label>
+                <input type="number" id="x1" placeholder="س1" required>
+                <input type="number" id="y1" placeholder="ص1" required>
+            </div>
+
+            <div class="form-group">
+                <label>إحداثيات النقطة الثانية (س2, ص2):</label>
+                <input type="number" id="x2" placeholder="س2" required>
+                <input type="number" id="y2" placeholder="ص2" required>
+            </div>
+
+            <button type="submit">حساب</button>
+        </form>
+
+        <div id="result"></div>
+
+        <button id="showGraphButton">عرض المستوى الديكارتي</button>
+        <button id="hideGraphButton" style="display: none;">إخفاء المستوى الديكارتي</button>
+
+        <!-- إضافة الأزرار لعرض الشرح وطريقة الحل -->
+        <button id="showSolutionButton">إظهار طريقة الحل</button>
+    </div>
+
+    <!-- عنصر الرسم -->
+    <div id="graphContainer" style="display: none;">
+        <canvas id="graphCanvas" width="1600" height="1600"></canvas>
+    </div>
+
+    <div id="solution" style="display: none;">
+        <p>طريقة الحل: نقوم بحساب إحداثيات المنتصف باستخدام الصيغة:</p>
+        <p>منتصف الإحداثيات (س, ص) = ((س1 + س2) / 2, (ص1 + ص2) / 2)</p>
+    </div>
+
+    <script src="midpoint.js"></script>
+</body>
+</html>

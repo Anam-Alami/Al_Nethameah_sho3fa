@@ -1,0 +1,111 @@
+/* تنسيق الخطوط والألوان */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5e6cc; /* بيج فاتح */
+    color: #4e3629; /* بني مائل للذهبي */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #d4af37; /* ذهبي */
+    padding: 20px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin: 0;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 3px solid #d4af37;
+    width: 300px;
+    position: relative;
+}
+
+/* الأشكال الهندسية */
+.box::before, .box::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #d4af37;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.box::before {
+    top: -25px;
+    left: -25px;
+}
+
+.box::after {
+    bottom: -25px;
+    right: -25px;
+}
+
+
+
+/* الشكل السداسي */
+.hexagon {
+    width: 400px;
+    height: 300px;
+    background-color: #d4af3799;
+    box-shadow: #000000;
+    position: absolute;
+    top: 200px;
+    right:  50px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* الخط */
+.line {
+    width: 1000px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    top: 600px;
+    left: 100px;
+}
+
+/* الأزرار */
+.button {
+    display: block;
+    margin: 10px 0;
+    padding: 12px;
+    background: #4e3629;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #d4af37;
+    color: black;
+}
+
+/* الفوتر */
+footer {
+    background: #4e36295e;
+    color: white;
+    padding: 5px;
+    font-size: 8px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

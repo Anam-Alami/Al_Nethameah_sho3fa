@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معادلة الخط المستقيم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>معادلة الخط المستقيم</h1>
+        <form onsubmit="calculateEquation(event)">
+            <label>إحداثيات النقطة الأولى (X1, Y1):</label>
+            <input type="number" id="x1" placeholder="X1" required>
+            <input type="number" id="y1" placeholder="Y1" required>
+            
+            <label>إحداثيات النقطة الثانية (X2, Y2):</label>
+            <input type="number" id="x2" placeholder="X2" required>
+            <input type="number" id="y2" placeholder="Y2" required>
+            
+            <button type="submit">حساب</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateEquation(event) {
+            event.preventDefault();
+            let x1 = parseFloat(document.getElementById("x1").value);
+            let y1 = parseFloat(document.getElementById("y1").value);
+            let x2 = parseFloat(document.getElementById("x2").value);
+            let y2 = parseFloat(document.getElementById("y2").value);
+
+            if (x1 === x2) {
+                document.getElementById("result").innerHTML = "المعادلة غير ممكنة لأن الخط عمودي.";
+                return;
+            }
+
+            let m = (y2 - y1) / (x2 - x1);
+            let b = y1 - m * x1;
+
+            document.getElementById("result").innerHTML = `معادلة الخط المستقيم: y = ${m.toFixed(2)}x + ${b.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

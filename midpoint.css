@@ -1,0 +1,142 @@
+/* تعيين إعدادات الخط العام */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff8f0; /* لون الخلفية الأبيض الفاتح */
+    color: #333; /* اللون الأساسي للنصوص */
+    margin: 0;
+    padding: 0;
+}
+
+/* التنسيق العام للحاوية */
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* تصميم العنوان */
+h1 {
+    font-size: 36px; /* زيادة حجم الخط */
+    color: #8a5d3b; /* اللون البني المائل للذهبي */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* إضافة ظل للنص */
+    margin-bottom: 20px;
+}
+
+/* تنسيق النموذج */
+form {
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة خفيفة */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف للنموذج */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 18px;
+    color: #333;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* تنسيق الحقول النصية */
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+/* تصميم الزر */
+button {
+    background-color: #a77733; 
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* إضافة ظل للزر */
+}
+
+button:hover {
+    background-color: #4e3b009a; /* تغيير اللون عند التحويم */
+}
+
+/* زر إخفاء / عرض الشرح */
+#showExplanationButton, #showSolutionButton {
+    margin-top: 20px;
+}
+
+/* تنسيق النتائج */
+#result {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* تنسيق الشرح */
+#explanation, #solution {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل للنصوص */
+    text-align: left;
+    font-size: 16px;
+}
+
+/* إضافة ظل للنصوص */
+strong {
+    color: #8a5d3b;
+}
+
+/* تحسين عرض المحاور في الرسم */
+#graphCanvas {
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* إضافة ظل على الرسم */
+}
+
+/* تحسين العرض عند الضغط على الأزرار */
+button:focus {
+    outline: none;
+}
+
+/* إضافة تنسيق للأزرار الخاصة بالشرح وطريقة الحل */
+#showExplanationButton, #showSolutionButton {
+    margin-top: 20px;
+    background-color: #917740; /* تغيير اللون حسب الرغبة */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#showExplanationButton:hover, #showSolutionButton:hover {
+    background-color: #856336; /* تغيير اللون عند التحويم */
+}
+
+/* تنسيق الشرح وطريقة الحل */
+#explanation, #solution {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل للنصوص */
+    text-align: left;
+    font-size: 16px;
+}
+
+/* إخفاء الشرح وطريقة الحل في البداية */
+#explanation, #solution {
+    display: none;
+}
