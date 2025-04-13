@@ -1,20 +1,25 @@
+/* distance.css */
+
+/* إعدادات عامة للصفحة */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff8f0;
-    color: #333;
+    font-family: 'Arial', sans-serif; /* نوع الخط */
+    background-color: #fff8f0; /* لون الخلفية العام */
+    color: #333; /* لون النص */
     margin: 0;
     padding: 0;
-    direction: rtl;
+    direction: rtl; /* اتجاه الصفحة من اليمين لليسار */
 }
 
+/* تنسيق العنوان الرئيسي */
 h1 {
     text-align: center;
     font-size: 36px;
-    color: #8a5d3b;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #8a5d3b; /* لون العنوان */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* ظل للنص */
     margin: 40px 0 10px;
 }
 
+/* تنسيق الفقرة التوضيحية */
 p {
     text-align: center;
     font-size: 18px;
@@ -22,23 +27,31 @@ p {
     color: #444;
 }
 
-.form-container,
-.check-point {
-    background-color: rgba(255, 255, 255, 0.8);
+/* الحاوية الرئيسية */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية بيضاء شفافة */
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* تدوير الزوايا */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    transition: height 0.5s ease;
 }
 
+/* توسعة الحاوية عند عرض الرسم البياني */
+.form-container.show-graph {
+    padding-bottom: 100px;
+}
+
+/* عناوين الأقسام الثانوية */
 .check-point h2 {
     font-size: 24px;
     color: #8a5d3b;
     margin-bottom: 20px;
 }
 
+/* تنسيق الحقول */
 label {
     display: block;
     font-size: 18px;
@@ -56,6 +69,7 @@ input[type="number"] {
     border-radius: 5px;
 }
 
+/* تنسيق الأزرار */
 button {
     background-color: #a77733;
     color: #fff;
@@ -77,8 +91,8 @@ button:focus {
     outline: none;
 }
 
-#equation-result,
-#check-result {
+/* تنسيق النتائج */
+#result {
     font-size: 20px;
     color: #333;
     margin-top: 20px;
@@ -86,31 +100,23 @@ button:focus {
     text-align: center;
 }
 
-strong {
-    color: #8a5d3b;
-}
-
-.cartesian-plane {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 90%;
-    max-width: 650px;
-    margin: 20px auto;
-    padding: 25px;
+/* خلفية الرسم البياني */
+#graphContainer {
+    margin-top: 30px;
+    background-color: #ffffffcc;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.cartesian-plane h2 {
-    font-size: 24px;
-    color: #8a5d3b;
-    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 canvas {
-    border: 1px solid #ccc;
-    background-color: #fff8f0;
-    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+}
+
+/* تمييز النص */
+strong {
+    color: #8a5d3b;
 }
 
 .back-button-container {

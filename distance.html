@@ -2,78 +2,56 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حساب المسافة بين نقطتين</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="distance.css">
 </head>
 <body>
-    <div class="container">
-        <h1>حساب المسافة بين نقطتين</h1>
-        <form onsubmit="calculateDistance(event)">
-            <label>إحداثيات النقطة الأولى (X1, Y1):</label>
-            <input type="number" id="x1" placeholder="X1" required>
-            <input type="number" id="y1" placeholder="Y1" required>
-            
-            <label>إحداثيات النقطة الثانية (X2, Y2):</label>
-            <input type="number" id="x2" placeholder="X2" required>
-            <input type="number" id="y2" placeholder="Y2" required>
-            
-            <button type="submit">حساب</button>
-        </form>
-        <div id="result"></div>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">← العودة إلى الصفحة الرئيسية</a>
     </div>
-    <canvas id="graphCanvas" width="400" height="400"></canvas>
+    
+    <h1>حساب المسافة بين نقطتين في المستوى الديكارتي</h1>
+    <p>أدخل إحداثيات النقطتين لحساب المسافة بينهما.</p>
 
-    <script>
-        function drawGraph(x1, y1, x2, y2) {
-            let canvas = document.getElementById("graphCanvas");
-            let ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-            // رسم المحاور
-            ctx.beginPath();
-            ctx.moveTo(200, 0);
-            ctx.lineTo(200, 400);
-            ctx.moveTo(0, 200);
-            ctx.lineTo(400, 200);
-            ctx.strokeStyle = "black";
-            ctx.stroke();
-    
-            // تحويل الإحداثيات
-            let scale = 20;
-            let x1Scaled = 200 + x1 * scale;
-            let y1Scaled = 200 - y1 * scale;
-            let x2Scaled = 200 + x2 * scale;
-            let y2Scaled = 200 - y2 * scale;
-    
-            // رسم الخط
-            ctx.beginPath();
-            ctx.moveTo(x1Scaled, y1Scaled);
-            ctx.lineTo(x2Scaled, y2Scaled);
-            ctx.strokeStyle = "red";
-            ctx.stroke();
-    
-            // رسم النقاط
-            ctx.fillStyle = "blue";
-            ctx.beginPath();
-            ctx.arc(x1Scaled, y1Scaled, 5, 0, 2 * Math.PI);
-            ctx.arc(x2Scaled, y2Scaled, 5, 0, 2 * Math.PI);
-            ctx.fill();
-        }
-    
-        function calculateDistance(event) {
-            event.preventDefault();
-            let x1 = parseFloat(document.getElementById("x1").value);
-            let y1 = parseFloat(document.getElementById("y1").value);
-            let x2 = parseFloat(document.getElementById("x2").value);
-            let y2 = parseFloat(document.getElementById("y2").value);
-    
-            let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-            document.getElementById("result").innerHTML = `المسافة بين النقطتين: ${distance.toFixed(2)}`;
-    
-            drawGraph(x1, y1, x2, y2);
-        }
-    </script>
-    
+    <div class="form-container">
+        <form id="distanceForm">
+            <label for="x1">الإحداثي السيني للنقطة الأولى (س₁):</label>
+            <input type="number" id="x1" required>
+
+            <label for="y1">الإحداثي الصادي للنقطة الأولى (ص₁):</label>
+            <input type="number" id="y1" required>
+
+            <label for="x2">الإحداثي السيني للنقطة الثانية (س₂):</label>
+            <input type="number" id="x2" required>
+
+            <label for="y2">الإحداثي الصادي للنقطة الثانية (ص₂):</label>
+            <input type="number" id="y2" required>
+
+            <button type="submit">احسب المسافة</button>
+        </form>
+
+        <div id="equation-result"></div>
+
+        <button id="showSolutionButton">إظهار طريقة الحل</button>
+        <div id="solution" style="display: none;">
+            <h2>طريقة الحل:</h2>
+            <p>نحسب المسافة باستخدام القانون التالي:</p>
+            <p>
+                <strong>
+                    الجذر التربيعي لـ ((س₂ − س₁)² + (ص₂ − ص₁)²)
+                </strong>
+            </p>
+            <p>نقوم بإيجاد الفرق بين الإحداثيات السينية والصادية، ثم نربعهم، ونجمعهم، ثم نأخذ الجذر التربيعي للناتج.</p>
+        </div>
+
+        <button id="showGraphButton">عرض المستوى الديكارتي</button>
+        <button id="hideGraphButton" style="display: none;">إخفاء المستوى الديكارتي</button>
+
+        <div id="graphContainer" style="display:none;">
+            <canvas id="graphCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="distance.js"></script>
 </body>
 </html>

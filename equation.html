@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="equation.css">
 </head>
 <body>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">← العودة إلى الصفحة الرئيسية</a>
+    </div>
+    
     <h1>إيجاد معادلة الخط المستقيم</h1>
     <p>يمكنك إدخال المعطيات لحساب معادلة الخط المستقيم والتحقق مما إذا كانت نقطة معينة تقع عليه.</p>
     
@@ -38,6 +42,17 @@
         <button onclick="checkPoint()">التحقق</button>
         <p id="check-result"></p>
     </div>
+<!-- أزرار التحكم في الرسم البياني -->
+<div style="text-align: center; margin-top: 20px;">
+    <button id="showGraphButton">عرض المستوى الديكارتي</button>
+    <button id="hideGraphButton" style="display: none;">إخفاء المستوى الديكارتي</button>
+</div>
+
+<!-- حاوية الرسم البياني -->
+<div id="graphContainer" style="display: none; text-align: center; margin-top: 20px;">
+    <canvas id="graphCanvas" width="1600" height="1600" style="border: 1px solid #ccc;"></canvas>
+</div>
+
     
     <script src="equation.js"></script>
 </body>
